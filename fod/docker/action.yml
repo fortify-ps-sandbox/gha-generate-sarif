@@ -1,0 +1,40 @@
+name: 'Generate SARIF from Fortify on Demand (FoD)'
+description: 'Generate SARIF file from Fortify on Demand (FoD) SAST results for import to GitHub'
+author: 'Fortify'
+inputs:
+  fod_base_url:
+    description: 'FoD Base URL (e.g. https://ams.fortify.com)'
+    required: true
+  fod_user:
+    description: 'FoD User Name'
+    required: false
+  fod_password:
+    description: 'FoD Password or Access Token'
+    required: false
+  fod_tenant:
+    description: 'FoD Tenant'
+    required: false
+  fod_client_id:
+    description: 'FoD Client Id'
+    required: false
+  fod_client_secret:
+    description: 'FoD Client Secret'
+    required: false
+  fod_release_id:
+    description: 'FoD Release ID from which to download SAST vulnerabilities'
+    required: false  
+  fod_release_name:
+    description: 'FoD <application name>:<release name> from which to download SAST vulnerabilities'
+    required: false  
+  sarif_output:
+    description: 'Name and location of generated SARIF file'
+    default: ${GITHUB_WORKSPACE}/gh-fortify-sast.sarif
+    required: false
+runs:
+  using: 'docker'
+  image: 'docker://fortifydocker/fortify-vulnerability-exporter:latest'
+  env:
+    export_config: /config/FoDToGitHub.yml
+branding:
+  icon: 'shield'
+  color: 'blue'
