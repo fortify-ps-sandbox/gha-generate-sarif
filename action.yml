@@ -1,0 +1,19 @@
+name: 'Generate SARIF from Fortify vulnerability data'
+description: 'Generate a SARIF file from Fortify SAST results for import to GitHub'
+author: 'Fortify'
+runs:
+  using: 'composite'
+  steps:
+    - shell: bash
+      run: |
+        echo "Please use one of the following actions: "
+        echo "- fortify/gha-generate-sarif/fod/docker@<version>"
+        echo "- fortify/gha-generate-sarif/fod/java@<version>"
+        echo "- fortify/gha-generate-sarif/ssc/docker@<version>"
+        echo "- fortify/gha-generate-sarif/ssc/java@<version>"
+        echo ""
+        echo "See the action documentation for details"
+        exit 1
+branding:
+  icon: 'shield'
+  color: 'blue'
