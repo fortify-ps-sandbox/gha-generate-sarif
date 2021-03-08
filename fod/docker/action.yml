@@ -5,7 +5,7 @@ inputs:
   fod_base_url:
     description: 'FoD Base URL (e.g. https://ams.fortify.com)'
     required: true
-  fod_user:
+  fod_user_name:
     description: 'FoD User Name'
     required: false
   fod_password:
