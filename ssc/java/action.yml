@@ -27,11 +27,13 @@ inputs:
     description: 'Name and location of generated SARIF file'
     default: ${GITHUB_WORKSPACE}/gh-fortify-sast.sarif
     required: false
+  export_config:
+    description: 'Configuration file to use'
+    default: 'config/SSCToGitHub.yml'
+    required: false
 runs:
   using: 'node12'
   main: '/dist/index.js'
-  env:
-    export_config: config/SSCToGitHub.yml
 branding:
   icon: 'shield'
   color: 'blue'
